@@ -23,7 +23,7 @@ const studentSchema=new mongoose.Schema(
              }
         },
         password:{
-            type:string,
+            type:String,
             required:true
         },
         phone:{

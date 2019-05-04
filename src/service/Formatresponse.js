@@ -1,4 +1,4 @@
-function Fromaresponse(res,playload,code=200){
+function Formatresponse(res,playload,code=200){
     const response={code};
     // 少于400 就是能找到东西了
     if(code<400){
@@ -14,4 +14,4 @@ function Fromaresponse(res,playload,code=200){
     }
     return res.status(code).send(response);
 }
-module.exports={Fromaresponse};
+module.exports={Formatresponse};
