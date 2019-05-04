@@ -1,14 +1,15 @@
 const Student=require('../model/student');
 class StudentService {
     // 输入一个model
-    construct(model){
+    constructor(model){
         this.model=model;
     }
     // 注册用
     async CreateOne(fields){
    // 创建一个新的model
     const document=new this.model(fields);
-     document.save();
+     await document.hashPassword();
+     await document.save();
      return document;
   }
 }

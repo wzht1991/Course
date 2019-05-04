@@ -48,12 +48,12 @@ const studentSchema=new mongoose.Schema(
     
 );
 // 密码加密 hash 10 次
-studentSchema.method.hashPassword=async function(){
+studentSchema.methods.hashPassword=async function(){
     this.password=await brcypt.hash(this.password,10);
 }
 // 验证
 studentSchema.method.validatePassword=async function(password){
-   const valid=brcypt.compare(password,this.password);
+   const valid=await brcypt.compare(password,this.password);
    return valid;
 }
 const Student= mongoose.model('student',studentSchema);

@@ -10,10 +10,13 @@ app.get("/",(req,res)=>{
 })
 // 他能支持json requset
 // https://blog.csdn.net/dlmmu/article/details/55671076
-router.use(express.json());
-router.use("/courseSystem",router);
+app.use(express.json());
+app.use("/courseSystem",router);
 const connectionUrl="mongodb://localhost:27017/coursedb"
-mongoose.connect(connectionUrl).then(()=>{
+mongoose.connect(connectionUrl,{
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }).then(()=>{
     app.listen(PORT,()=>{
     logger.info(`welcome to port ${PORT}!`);
     })
