@@ -1,4 +1,5 @@
 const router=require("express").Router();
 const {Register}=require("../controller/Register");
-router.post('/register',Register);
+const RegisterValidation=require("../middleware/RegisterValidation");
+router.post('/register',RegisterValidation,Register);
 module.exports=router;

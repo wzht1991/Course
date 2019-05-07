@@ -16,11 +16,11 @@ const studentSchema=new mongoose.Schema(
         email:{
              type:String,
              required:true,
-             unique:true,
-             validate:{
-                 validator: email=> !joi.validate(email,joi.string().email()).error,
-                 msg:"invalid email"
-             }
+             unique:true
+            //  validate:{
+            //      validator: email=> !joi.validate(email,joi.string().email()).error,
+            //      msg:"invalid email"
+            //  }
         },
         password:{
             type:String,
