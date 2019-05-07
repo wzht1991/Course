@@ -52,9 +52,9 @@ studentSchema.methods.hashPassword=async function(){
     this.password=await brcypt.hash(this.password,10);
 }
 // 验证
-studentSchema.method.validatePassword=async function(password){
-   const valid=await brcypt.compare(password,this.password);
-   return valid;
-}
+studentSchema.methods.validatePassword=async function(password){
+    const validpassword= await brcypt.compare(password,this.password);
+    return validpassword;
+  }
 const Student= mongoose.model('student',studentSchema);
 module.exports=Student;

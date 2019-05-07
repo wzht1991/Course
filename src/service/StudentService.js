@@ -12,5 +12,16 @@ class StudentService {
      await document.save();
      return document;
   }
+   //   login
+  async validatePasswordByEmail(email,password){
+    const student=await this.model.findOne({email});
+      const verify=await student.validatePassword(password);
+    // 数据库中有这个email
+    if(verify){
+        return student;
+    }else{
+        return null;
+    }
+ }
 }
 module.exports=new StudentService(Student);
