@@ -15,7 +15,7 @@ class StudentService {
    //   login
   async validatePasswordByEmail(email,password){
     const student=await this.model.findOne({email});
-      const verify=await student.validatePassword(password);
+    const verify=await student.validatePassword(password);
     // 数据库中有这个email
     if(verify){
         return student;
