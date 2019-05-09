@@ -10,7 +10,7 @@ class CourseService{
     return document;
    }
    async deleteCourse(code){
-     return this.model.findOneAndDelete({code:code});
+     return await this.model.findOneAndDelete({code:code});
    }
 }
 module.exports=new CourseService(Course);

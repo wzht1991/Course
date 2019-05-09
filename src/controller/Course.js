@@ -13,7 +13,8 @@ async function addCourse(req,res){
 }
 async function deleteCourse(req,res){
     const{code}=req.params;
-    const course=CourseService.deleteCourse(code);
+    // await 很重要 记得写
+    const course=await CourseService.deleteCourse(code);
     if(!course){
         return Formatresponse(res,"Course is not exist",400);
     }
