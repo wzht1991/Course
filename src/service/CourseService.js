@@ -9,5 +9,8 @@ class CourseService{
     await document.save();
     return document;
    }
+   async deleteCourse(code){
+     return this.model.findOneAndDelete({code:code});
+   }
 }
 module.exports=new CourseService(Course);

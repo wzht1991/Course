@@ -1,5 +1,6 @@
 const router=require("express").Router();
-const {addcourse}=require("../controller/Course");
+const {addCourse,deleteCourse}=require("../controller/Course");
 const AddCourseValidation=require("../middleware/AddCourseValidation");
-router.post("/addcourse",AddCourseValidation,addcourse);
+router.post("/addcourse",AddCourseValidation,addCourse);
+router.post("/deleteCourse/:code",deleteCourse);
 module.exports=router;
