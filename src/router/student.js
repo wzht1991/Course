@@ -1,8 +1,10 @@
 const router=require("express").Router();
 const {Register}=require("../controller/Register");
 const {Login}=require("../controller/login");
+const {RegisterCourse}=require("../controller/RegisterCourse");
 const RegisterValidation=require("../middleware/RegisterValidation");
 const LoginValidation=require("../middleware/LoginValidation");
 router.post('/register',RegisterValidation,Register);
 router.post('/login',LoginValidation,Login);
+router.post('/registercourse/:email',RegisterCourse);
 module.exports=router;

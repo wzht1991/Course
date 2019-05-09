@@ -32,9 +32,10 @@ const studentSchema=new mongoose.Schema(
             minlength:10
         },
         course:[{
-            type:String,
+            type:Array,
             ref:'Courses'
-        }]
+        },
+       ]
     },
         {
             // 输出是object 或者json

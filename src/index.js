@@ -6,6 +6,8 @@ const router=require("./router/router");
 const logger=require("./logger");
 const app=express();
 const PORT=process.env.PORT||3002;
+// 要设置这个不然的话 findoneandupdate 这个方法会报过期错误
+mongoose.set('useFindAndModify', false);
 app.get("/",(req,res)=>{
     res.send("welcome");
 })
