@@ -1,5 +1,6 @@
 const CourseService=require("../service/CourseService");
 const Course=require("../model/course");
+const Student=require("../model/student");
 const {Formatresponse}=require('../service/Formatresponse');
 async function addCourse(req,res){
     const {code,name,description}=req.body;
@@ -18,7 +19,11 @@ async function deleteCourse(req,res){
     if(!course){
         return Formatresponse(res,"Course is not exist",400);
     }
-    return Formatresponse(res,"success",201);
+    // 让student 也delete 掉课程 因為課程不存在了
+    for (let i=0;i<course.student.length;i++){
+        await Student.update({email:course.student[i]},{$pull:{course:code}});
+    }
+    return Formatresponse(res,{course},201);
 }
 module.exports={
     addCourse,

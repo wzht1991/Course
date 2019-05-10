@@ -5,10 +5,6 @@ function RegisterCourseValidation(req){
     code:
     joi
     .string()
-    .required(),
-    name:
-    joi
-    .string()
     .required()
  };
  return joi.validate(req,schema);

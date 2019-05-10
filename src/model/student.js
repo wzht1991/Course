@@ -32,9 +32,9 @@ const studentSchema=new mongoose.Schema(
             minlength:10
         },
         course:[{
-            type:Array,
+            type:String,
             ref:'Courses'
-        },
+        }
        ]
     },
         {
@@ -57,5 +57,5 @@ studentSchema.methods.validatePassword=async function(password){
     const validpassword= await brcypt.compare(password,this.password);
     return validpassword;
   }
-const Student= mongoose.model('student',studentSchema);
+const Student= mongoose.model('Student',studentSchema);
 module.exports=Student;

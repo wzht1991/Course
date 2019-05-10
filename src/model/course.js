@@ -12,7 +12,11 @@ const courseSchema = new mongoose.Schema(
     },
     description: {
       type: String
-    }
+    },
+    student:[{
+      type:String,
+      ref:"Student"
+    }]
   },
   {
     // 输出是object 或者json
