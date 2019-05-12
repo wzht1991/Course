@@ -53,9 +53,9 @@ async function DropCourse(req,res){
     for(let i=0;i<student.course.length;i++){
         if(student.course[i]===code){
             // 从学生课程中删除
-             await Student.update({email:email},{$pull:{course:student.course[i]}});
+             await Student.updateOne({email:email},{$pull:{course:student.course[i]}});
             //从课程里面的学生名单中删除
-             await Course.update({code:student.course[i]},{$pull:{student:email}});
+             await Course.updateOne({code:student.course[i]},{$pull:{student:email}});
              return Formatresponse(res,"success!",201);
         }
     };

@@ -21,7 +21,7 @@ async function deleteCourse(req,res){
     }
     // 让student 也delete 掉课程 因為課程不存在了
     for (let i=0;i<course.student.length;i++){
-        await Student.update({email:course.student[i]},{$pull:{course:code}});
+        await Student.updateOne({email:course.student[i]},{$pull:{course:code}});
     }
     return Formatresponse(res,{course},201);
 }
