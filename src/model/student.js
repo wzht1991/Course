@@ -31,6 +31,10 @@ const studentSchema=new mongoose.Schema(
             required:true,
             minlength:10
         },
+        status:{
+            type:String,
+            required:true
+        },
         course:[{
             type:String,
             ref:'Courses'

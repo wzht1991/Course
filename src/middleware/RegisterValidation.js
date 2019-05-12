@@ -24,7 +24,11 @@ function Registervalidation(req){
     joi
     .number()
     .required()
-    .min(9)
+    .min(9),
+    status:
+    joi
+    .string()
+    .required()
    };
    return joi.validate(req,shema);
 }
