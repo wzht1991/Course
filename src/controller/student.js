@@ -19,7 +19,7 @@ async function  Register (req,res){
     if(!student){
         return Formatresponse(res,"wrong email or password",400);
     }
-        return Formatresponse(res,`welcome ${student.fistname} ${student.lastname}`,201);
+        return Formatresponse(res, student,201);
 };
 async function RegisterCourse(req,res){
     const{code}=req.body;
