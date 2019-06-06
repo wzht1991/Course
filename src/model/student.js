@@ -3,7 +3,7 @@ const joi=require('joi');
 const brcypt=require('bcrypt');
 const studentSchema=new mongoose.Schema(
     {
-        fistname:{
+        firstname:{
             type:String,
             required: true,
             trim:true
